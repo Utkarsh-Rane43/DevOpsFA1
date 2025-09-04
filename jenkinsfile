@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Compiling code...'
+                bat 'javac multiply.java'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                bat 'java multiply'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'
+            }
+        }
+    }
+}
